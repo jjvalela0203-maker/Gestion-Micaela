@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <header class="flex items-start p-3 bg-stone-50">
+      <h1 class="text-2xl font-bold">Gestión Micaela</h1>
+    </header>
+    <main class="bg-slate-50 px-5 py-3 space-y-3">
+      <section id="buttons" class="grid grid-cols-1 md:grid-cols-3">
+        <div
+          class="col-span-1 100 h-full w-full p-3 grid grid-cols-4 space-x-3"
+        >
+          <div class="col-span-3">
+            <input
+              type="text"
+              class="border border-gray-200 w-full p-2 rounded-lg"
+              placeholder="Ingrese el dato a buscar"
+            />
+          </div>
+          <div class="col-span-1">
+            <button
+            id="search"
+              class="bg-indigo-100 p-2 rounded-lg cursor-pointer hover:bg-indigo-300"
+            >
+              Buscar
+            </button>
+          </div>
+        </div>
+        <div></div>
+        <div class="col-span-1 flex items-center justify-end pr-5">
+          <button
+          id="new"
+            class="bg-purple-400 p-2 rounded-lg cursor-pointer hover:bg-purple-700 hover:text-stone-100 px-5 md:w-64 w-full"
+          >
+            New
+          </button>
+        </div>
+
+        <section id="formulario" class="w-full hidden">
+          <form class="grid grid-cols-2 space-x-3 space-y-2" id="formData">
+            <div class="col-span-1 space-y-2">
+              <label for="name">Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Jhon"
+                class="border border-gray-200 w-full p-2 rounded-lg"
+                required
+              />
+            </div>
+            <div class="col-span-1 space-y-2">
+              <label for="lastname">Lastname</label>
+              <input
+                type="text"
+                name="lastname"
+                id="lastname"
+                placeholder="Doe"
+                class="border border-gray-200 w-full p-2 rounded-lg"
+                required
+              />
+            </div>
+            <div class="col-span-2 grid grid-cols-4 space-y-2 space-x-1">
+              <div class="col-span-3 space-y-2">
+                <label for="url">Photo</label>
+                <input
+                  type="text"
+                  name="url"
+                  id="url"
+                  placeholder="https://ejemplo.com/mi-photo"
+                  class="border border-gray-200 w-full p-2 rounded-lg"
+                  required
+                />
+              </div>
+              <div class="col-span-1 space-y-2">
+                <label for="birthdate">Birthdate</label>
+                <input
+                  type="datetime"
+                  id="birthdate"
+                  name="birthdate"
+                  class="border border-gray-200 w-full p-2 rounded-lg"
+                  required
+                />
+              </div>
+            </div>
+            <div class="col-span-2 space-y-2 flex flex-col">
+              <label for="description">Description</label>
+              <textarea
+                name="description"
+                id="description"
+                rows="3"
+                class="w-full border border-gray-200 rounded-lg"
+                required
+              ></textarea>
+            </div>
+            <section id="toDo" class="flex justify-between w-full py-2">
+              <div>
+                <button
+                id="cancel"
+                  class="bg-zinc-300 hover:bg-stone-400 hover:text-stone-100 px-5 py-2 rounded"
+                >
+                  Cancelar
+                </button>
+              </div>
+              <div></div>
+              <div>
+                <button
+                id="create"
+                  class="bg-emerald-400 hover:text-stone-100 hover:bg-emerald-600 px-5 py-2 rounded"
+                >
+                  Crear
+                </button>
+              </div>
+            </section>
+          </form>
+        </section>
+      </section>
+      <section
+        id="data"
+        class="w-full p-5 grid grid-cols-1 md:grid-cols-3 space-x-3 space-y-3"
+      ></section>
+    </main>
+    <script src="main.js"></script>
+  </body>
+</html>
