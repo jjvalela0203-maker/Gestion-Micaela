@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           const { name, lastname, url, description, birthdate, color } = element;
           const card = document.createElement("div");
           card.innerHTML = `<div
-          class="bg-${color?color:"pink"}-100 p-3 rounded rounded-lg flex flex-col items-center space-y-2"
+          class="bg-${color?color:"pink"}-100 p-3 rounded rounded-lg flex flex-col items-center space-y-2 hover:scale-105 transition-transform duration-300 m-4"
       >
           <article>
           <h3 class="text-2xl font-bold">${name} ${lastname}</h3>
