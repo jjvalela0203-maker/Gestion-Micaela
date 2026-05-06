@@ -12,6 +12,19 @@ btnCancel.addEventListener("click", () => {
   btnNew.disabled = false;
 });
 
+const calculateAge = (birthdate) => {
+    if (!birthdate) return "N/A";
+    const birthDateObj = new Date(birthdate);
+    if (isNaN(birthDateObj.getTime())) return "N/A";
+
+    const today = new Date();
+    let age = today.getFullYear() - birthDateObj.getFullYear();
+    const monthDiff = today.getMonth() - birthDateObj.getMonth();
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDateObj.getDate())) {
+        age--;
+    }
+    return age;
+};
 async function sendData() {
   btnCreate.disabled = true;
   try {
@@ -63,33 +76,51 @@ document.addEventListener("DOMContentLoaded", async () => {
           <article>
           <h3 class="text-2xl font-bold">${name} ${lastname}</h3>
           </article>
-          <figure class="flex flex-col items-center space-y-2 h-60 w-64 md:w-100    ">
+          <figure class="flex flex-col items-center space-y-2 h-60 w-64 md:w-full">
           <img
               src="${url}"
               alt="${name} ${lastname}"
+              class="w-full h-full object-contain"
           />
-          <span class="text-lg text-stone-500">Edad: ${birthdate}</span>
+          <span class="text-lg text-stone-500 m- ">Edad: ${calculateAge(birthdate)}</span>
           </figure>
-          <article class="text-justify p-3">
+          <article class="text-justify p-3 m-6">
           <p>
               ${description}
           </p>
           </article>
           <section id="actions" class="flex justify-around w-full py-2">
           <div>
-              <button class="bg-orange-300 hover:bg-amber-500 hover:text-stone-100 px-5 py-2 rounded">Editar</button>
+              <button id="edit" class="bg-orange-300 hover:bg-amber-500 hover:text-stone-100 px-5 py-2 rounded">Editar</button>
           </div>
           <div></div>
           <div>
-              <button class="bg-red-400 hover:text-stone-100 hover:bg-red-600 px-5 py-2 rounded">Eliminar</button>
+              <button id="delete" class="bg-red-400 hover:text-stone-100 hover:bg-red-600 px-5 py-2 rounded">Eliminar</button>
           </div>
           </section>
       </div>`;
+
+          // Buscamos el botón de eliminar que acabamos de crear dentro de esta tarjeta específica
+          const btnDelete = card.querySelector("#delete");
+          btnDelete.addEventListener("click", async () => {
+            // Agregamos la confirmación
+            const confirmDelete = confirm(`¿Estás seguro de que deseas eliminar a ${name}?`);
+            
+            if (confirmDelete) {
+              try {
+                await fetch(`http://localhost:3000/micaela/${element.id}`, {
+                  method: "DELETE",
+                });
+                card.remove(); // Esto elimina la tarjeta visualmente sin recargar
+              } catch (error) {
+                console.error("Error al eliminar:", error);
+              }
+            }
+          });
+
           containerData.appendChild(card);
         });
     }catch{
 containerData.innerText= "No hay datos para mostrar"
     }
 });
-
-
