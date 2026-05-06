@@ -14,14 +14,6 @@
       "lastname": "of The rose",
       "description": "texto de ejemplo",
       "id": "LHEAG8wsmwe"
-    },
-    {
-      "name": "Juan Jose Varela Zorrilla",
-      "url": "https://pbs.twimg.com/media/G_w_uKlXkAE15gu.jpg",
-      "lastname": "Zuluaga",
-      "description": "el beibyyy",
-      "birthdate": "2026-05-06",
-      "id": "xbnk5ZgxNBQ"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
