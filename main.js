@@ -32,6 +32,7 @@ async function sendData() {
     const lastname = document.getElementById("lastname").value;
     const birthdate = document.getElementById("birthdate").value;
     const description = document.getElementById("description").value;
+    const color = document.getElementById("color").value;
     const url = document.getElementById("url").value;
 
     const response = await fetch("http://localhost:3000/micaela", {
@@ -42,7 +43,11 @@ async function sendData() {
         lastname: lastname,
         description: description,
         birthdate: birthdate,
+        color: color,
       }),
+      headers: {
+        "Content-Type": "application/json",
+      },
     });
     
   } catch (e) {
