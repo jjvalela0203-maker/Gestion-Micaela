@@ -117,6 +117,53 @@ document.addEventListener("DOMContentLoaded", async () => {
               }
             }
           });
+          const btnEdit = card.querySelector("#edit");
+          btnEdit.addEventListener("click", async () => {
+            const quedesea = confirm("deseas editar?"); 
+
+            console.log(quedesea);
+            if (!quedesea) return; // Si el usuario cancela la edición 
+            const fieldToEdit = prompt("¿Qué campo deseas editar? (name, lastname, description, birthdate, url, color)");
+            if (!fieldToEdit) return; // Si el usuario cancela el prompt
+            const validFields = ["name", "lastname", "description", "birthdate", "url", "color"];
+            if (!validFields.includes(fieldToEdit)) {
+              alert("Campo no válido. Por favor, elige uno de los siguientes: name, lastname, description, birthdate, url, color.");
+              return;
+            }
+            const newValue = prompt(`Ingrese el nuevo valor para ${fieldToEdit}:`, element[fieldToEdit]);
+            if (newValue) {
+              try {
+                await fetch(`http://localhost:3000/micaela/${element.id}`, {
+                  method: "PUT",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify({
+                    ...element,
+                    [fieldToEdit]: newValue,
+                  }),
+                });
+                // Actualizamos el campo editado en la tarjeta sin recargar   
+                if (fieldToEdit === "name" || fieldToEdit === "lastname") {
+                  const nameElement = card.querySelector("h3");
+                  nameElement.textContent = `${fieldToEdit === "name" ? newValue : name} ${fieldToEdit === "lastname" ? newValue : lastname}`;
+                } else if (fieldToEdit === "description") {
+                  const descriptionElement = card.querySelector("article p");
+                  descriptionElement.textContent = newValue;
+                } else if (fieldToEdit === "url") {
+                  const imgElement = card.querySelector("figure img");
+                  imgElement.src = newValue;
+                } else if (fieldToEdit === "color") {
+                  card.firstChild.className = `bg-${newValue}-100 p-3 rounded rounded-lg flex flex-col items-center space-y-2`;
+                }
+              } catch (error) {
+                console.error("Error al editar:", error);
+              }
+            } else {
+              alert("No se ingresó un nuevo valor. La edición ha sido cancelada.");
+            }     
+            
+          });
 
           containerData.appendChild(card);
         });

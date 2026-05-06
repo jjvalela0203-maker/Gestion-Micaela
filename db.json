@@ -16,12 +16,20 @@
       "id": "LHEAG8wsmwe"
     },
     {
-      "name": "Juan Jose Varela Zorrilla",
-      "url": "https://pbs.twimg.com/media/G_w_uKlXkAE15gu.jpg",
-      "lastname": "Zuluaga",
-      "description": "el beibyyy",
-      "birthdate": "2026-05-06",
-      "id": "xbnk5ZgxNBQ"
+      "name": "ñ",
+      "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMI1F-PWGctHoZwzq4T_vS80tvqhG15xyYIQD6_R4tTHdiwO40p8yGrQu1UeMN7YUcGpSb9AeQaDrec4wCH_Z8YHUHIWniqit8uvNkDFe99A&s=10",
+      "lastname": "l",
+      "description": "dfsdfsd",
+      "birthdate": "2003-06-04",
+      "id": "PzWxfkq2D2c"
+    },
+    {
+      "name": "jhonm",
+      "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReClhVHlyCWbooq7PPa2j3_If6Xa_9ep1g4TbtYhVKnaI-jMgkr6rEF3s3iX9deJmhC4Suk5r3p9bcdqV6_5qkPhYyQ3IVMRM94gbu_A2h&s=10",
+      "lastname": "ghgh",
+      "description": "bv",
+      "birthdate": "2005-02-25",
+      "id": "Khch-ZaCqSM"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
