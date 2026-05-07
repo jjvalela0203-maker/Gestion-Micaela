@@ -6,15 +6,16 @@
       "lastname": "Lavalle",
       "description": "texto de relleno",
       "id": "LHEAG8wsmwg",
-      "color": "cyan"
+      "color": "cyan",
+      "birthdate": "2000-01-01"
     },
     {
       "name": "Luisita",
       "url": "https://www.elheraldo.co/resizer/v2/PXA5XEZZ25CK3CEMBDLYXDYG3M.jpeg?auth=81727b299d674359e0af1bd6dadf1ff022afd19aa033435cec4f0512ecde3d27&smart=true&quality=70&width=1200&height=675",
       "lastname": "of The rose",
       "description": "texto de ejemplo",
-      "id": "LHEAG8wsmwe"
+      "id": "LHEAG8wsmwe",
+      "birthdate": "1947-04-02"
     }
-  ],
-  "$schema": "./node_modules/json-server/schema.json"
+  ]
 }
