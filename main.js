@@ -2,6 +2,10 @@ const btnNew = document.getElementById("new");
 const btnCancel = document.getElementById("cancel");
 const btnCreate = document.getElementById("create");
 
+addEventListener("DOMContentLoaded", () => {
+  birthdate.max = new Date().toISOString().split("T")[0];
+});
+
 btnNew.addEventListener("click", () => {
   document.getElementById("formulario").classList.remove("hidden");
   btnNew.disabled = true;
