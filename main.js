@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           card.dataset.name = (name + " " + lastname).toLowerCase();
           // aca termina lo que agregue.
           card.innerHTML = `<div
-          class="bg-${color?color:"pink"}-100 p-3 rounded rounded-lg flex flex-col items-center space-y-2"
+          class="bg-${color?color:"pink"}-100 p-3 rounded rounded-lg flex flex-col items-center space-y-2 hover:scale-105 transition-transform duration-300 m-4"
       >
           <article>
           <h3 class="text-2xl font-bold">${name} ${lastname}</h3>
